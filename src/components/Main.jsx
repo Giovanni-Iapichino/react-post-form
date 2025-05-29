@@ -16,5 +16,19 @@ export default function Main() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
+  const createPost = (data) => {
+    axios
+      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", data)
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createPost(formData);
+  };
+
   return;
 }
